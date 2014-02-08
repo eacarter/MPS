@@ -1,6 +1,7 @@
 package com.ITOxygen.mps;
 
 import java.util.ArrayList;
+import java.util.zip.Inflater;
 
 import com.ITOxygen.MPSModels.ParkingModel;
 import com.parse.Parse;
@@ -8,7 +9,9 @@ import com.parse.Parse;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.view.View;
 import android.widget.ListView;
+import android.view.LayoutInflater;
 
 public class MainActivity extends Activity {
 
@@ -16,7 +19,9 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		ListView List = (ListView) R.layout.findViewById(R.id.ParkingLotList);
+		//set content view
+		View v;
+		ListView List = (ListView) v.layout.findViewById(R.id.ParkingLotList);
 		
 		Parse.initialize(getApplication(), DeveloperKey.AppID, DeveloperKey.ClientKey);
 		
