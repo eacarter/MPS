@@ -101,16 +101,16 @@ public class ParkingLotAdapter extends ExpandableListItemAdapter<ParkingModel>{
 		title.setText("lot " + getItem(position).getNumber());
 		//state.setText(getItem(position).state+"");
 
-		if (getItem(position).getNumber() == 2) {
-			state.setImageResource(R.drawable.tenplus);
+		if (getItem(position).state == 2) {
+			state.setImageResource(R.drawable.smalltenplus);
 		}
 
-		else if(getItem(position).getNumber() == 1){
-		state.setImageResource(R.drawable.tenminus);
+		else if(getItem(position).state == 1){
+		state.setImageResource(R.drawable.smalltenminus);
 		}
 
-		else if(getItem(position).getNumber() == 0){
-		state.setImageResource(R.drawable.zero);
+		else if(getItem(position).state == 0){
+		state.setImageResource(R.drawable.smallzero);
 		}
 
 		else
