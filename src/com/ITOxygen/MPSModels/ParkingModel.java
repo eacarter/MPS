@@ -12,10 +12,13 @@ public class ParkingModel {
 	
 	public Date updated;
 	
+	public String id;
+	
 	public ParkingModel(ParseObject object){
 		this.number = object.getInt("ParkingLot");
 		this.state = object.getInt("Spaces");
 		this.updated = object.getUpdatedAt();
+		this.id = object.getObjectId();
 	}
 	public int getNumber(){
 		return number;

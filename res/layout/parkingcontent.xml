@@ -10,20 +10,26 @@
         android:orientation="horizontal">
         
         
-        <Button 
+        <ImageButton 
+            android:id="@+id/tenPlus"
+            android:layout_weight=".5"
             android:layout_height="match_parent"
             android:layout_width="wrap_content"
-            android:text="10+"/>
+            android:src="@drawable/ic_launcher"/>
         
-        <Button 
+        <ImageButton 
+            android:id="@+id/tenMinus"
+            android:layout_weight=".5"
             android:layout_height="match_parent"
             android:layout_width="wrap_content"
-            android:text="10-"/>
+            android:src="@drawable/ic_launcher"/>
          
-        <Button 
+        <ImageButton 
+            android:id="@+id/zero"
+            android:layout_weight=".5"
             android:layout_height="match_parent"
             android:layout_width="wrap_content"
-            android:text="0"/>
+            android:src="@drawable/ic_launcher"/>
         
        
     </LinearLayout>
@@ -37,9 +43,10 @@
         <TextView 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="update at: Lot "/>
+            android:text="update at: "/>
         
          <TextView 
+            android:id="@+id/time" 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="00"/>
