@@ -1,8 +1,12 @@
 package com.ITOxygen.mps;
 
 import java.util.ArrayList;
-import java.util.zip.Inflater;
 import java.util.List;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.widget.ListView;
 
 import com.ITOxygen.MPSModels.ParkingModel;
 import com.ITOxygen.mps.Adapter.ParkingLotAdapter;
@@ -12,12 +16,8 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
-import android.os.Bundle;
-import android.app.Activity;
-import android.view.Menu;
-import android.view.View;
-import android.widget.ListView;
-import android.view.LayoutInflater;
+import eu.erikw.PullToRefreshListView;
+import eu.erikw.PullToRefreshListView.OnRefreshListener;
 
 public class MainActivity extends Activity {
 
@@ -26,9 +26,32 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		ListView List = (ListView) findViewById(R.id.ParkingLotList);
-		
 		Parse.initialize(getApplication(), DeveloperKey.AppID, DeveloperKey.ClientKey);
+		//
+		
+		final PullToRefreshListView listView = (PullToRefreshListView) findViewById(R.id.ParkingLotList);
+		listView.setOnRefreshListener(new OnRefreshListener() {
+
+		    @Override
+		    public void onRefresh() {
+		    	ArrayList<ParkingModel> modelList = populate();
+				
+				ParkingLotAdapter pAdapter = new ParkingLotAdapter(getApplicationContext(), modelList);
+				
+				SwingBottomInAnimationAdapter animation = new SwingBottomInAnimationAdapter(pAdapter);
+				
+				animation.setAbsListView(listView);
+				animation.setInitialDelayMillis(500);
+				
+				listView.setAdapter(animation);
+				
+		        listView.onRefreshComplete();
+		    }
+		});
+
+		
+		//
+		
 		
 		// get parking lot model list
 		
@@ -38,10 +61,10 @@ public class MainActivity extends Activity {
 		
 		SwingBottomInAnimationAdapter animation = new SwingBottomInAnimationAdapter(pAdapter);
 		
-		animation.setAbsListView(List);
+		animation.setAbsListView(listView);
 		animation.setInitialDelayMillis(500);
 		
-		List.setAdapter(animation);
+		listView.setAdapter(animation);
 	}
 
 	/*

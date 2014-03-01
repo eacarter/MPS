@@ -8,11 +8,10 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <ListView
-        android:id="@+id/ParkingLotList"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:divider="@null" >
-    </ListView>
+    <eu.erikw.PullToRefreshListView
+    android:id="@+id/ParkingLotList"
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent"
+    android:divider="@null" />
 
 </RelativeLayout>

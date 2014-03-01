@@ -68,7 +68,7 @@ public class ParkingLotAdapter extends ExpandableListItemAdapter<ParkingModel>{
 		return v;
 	}
 
-	private void sendSpaces(int i, ParkingModel model) {
+	private void sendSpaces(final int i, final ParkingModel model) {
 
 		ParseObject point = ParseObject.createWithoutData("ParkingLots", model.id);
 		point.put("Spaces",i);
@@ -78,6 +78,9 @@ public class ParkingLotAdapter extends ExpandableListItemAdapter<ParkingModel>{
 			public void done(ParseException arg0) {
 				if(arg0 == null){
 					Toast.makeText(mContext, "Successfully Saved", Toast.LENGTH_LONG).show();
+					//TODO: if chain of images based on states
+					model.setState(i);
+					notifyDataSetChanged();
 				}
 				else{
 					Toast.makeText(mContext, "Failed to update database", Toast.LENGTH_LONG).show();
@@ -106,22 +109,22 @@ public class ParkingLotAdapter extends ExpandableListItemAdapter<ParkingModel>{
 		}
 
 		else if(getItem(position).state == 1){
-		state.setImageResource(R.drawable.smalltenminus);
+			state.setImageResource(R.drawable.smalltenminus);
 		}
 
 		else if(getItem(position).state == 0){
-		state.setImageResource(R.drawable.smallzero);
+			state.setImageResource(R.drawable.smallzero);
 		}
 
 		else
-		state.setImageResource(R.drawable.ic_launcher);
+			state.setImageResource(R.drawable.ic_launcher);
 
-	return v;
-}
+		return v;
+	}
 
-public ParkingLotAdapter(Context context, List<ParkingModel> items ){
-	super(context, R.layout.activtiy_expandablelistitem_card, R.id.activity_expandablelistitem_card_title, R.id.activity_expandablelistitem_card_content, items);
-	mContext =context;
+	public ParkingLotAdapter(Context context, List<ParkingModel> items ){
+		super(context, R.layout.activtiy_expandablelistitem_card, R.id.activity_expandablelistitem_card_title, R.id.activity_expandablelistitem_card_content, items);
+		mContext =context;
 
-}
+	}
 }
