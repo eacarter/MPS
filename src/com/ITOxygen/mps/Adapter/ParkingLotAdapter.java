@@ -1,6 +1,5 @@
 package com.ITOxygen.mps.Adapter;
 
-import java.util.Date;
 import java.util.List;
 
 import android.content.Context;
@@ -8,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -27,7 +25,6 @@ public class ParkingLotAdapter extends ExpandableListItemAdapter<ParkingModel>{
 
 	@Override
 	public View getContentView(final int position, View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
 		View v = convertView;
 
 		if(v == null){

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp" 
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MPS is an app to monitor the availabilty of parking at Michigan Tech"
+        android:textStyle="normal" 
+        android:layout_marginBottom="10dp"
+        />
+    	
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This application uses crowd-sourcing to estimate the availability of each lot. For this app to be effective all users have to take the time to submit parking info."
+        android:textStyle="normal" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Do not show this message again" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/dismiss"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:text="Dismiss" />
+
+</LinearLayout>
