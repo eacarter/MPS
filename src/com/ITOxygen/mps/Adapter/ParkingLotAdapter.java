@@ -1,5 +1,6 @@
 package com.ITOxygen.mps.Adapter;
 
+import java.util.Date;
 import java.util.List;
 
 import android.content.Context;
@@ -37,8 +38,31 @@ public class ParkingLotAdapter extends ExpandableListItemAdapter<ParkingModel>{
 		ImageButton tenMinus = (ImageButton) v.findViewById(R.id.tenMinus);
 		ImageButton zero = (ImageButton) v.findViewById(R.id.zero);
 		TextView time = (TextView) v.findViewById(R.id.time);
-
-		time.setText(getItem(position).getUpdated().toLocaleString());
+		
+		//time.setText(getItem(position).getUpdated().toLocaleString());
+		
+        long diff = (System.currentTimeMillis() - (getItem(position).getUpdated()).getTime());
+        
+        long days = (diff/86400000);
+        long hours = (diff/3600000) % 24;
+        long minutes = (diff/60000) % 60;
+        
+        
+        String stringText;
+        
+        if(days > 0){
+        	stringText = days + " days ago";
+        }
+        else if(hours > 0){
+        	stringText = hours + " hours ago";
+        }
+        else if(minutes > 0){
+        	stringText= minutes + " minutes ago";
+        }
+        else
+        	stringText = " moments ago";
+        
+		time.setText(stringText);
 
 		tenPlus.setOnClickListener(new OnClickListener() {
 
