@@ -14,11 +14,20 @@ public class ParkingModel {
 	
 	public String id;
 	
+	public String lotType;
+	
 	public ParkingModel(ParseObject object){
 		this.number = object.getInt("ParkingLot");
 		this.state = object.getInt("Spaces");
 		this.updated = object.getUpdatedAt();
 		this.id = object.getObjectId();
+		this.lotType = object.getString("Type");
+	}
+	public String getLotType() {
+		return lotType;
+	}
+	public void setLotType(String lotType) {
+		this.lotType = lotType;
 	}
 	public int getNumber(){
 		return number;
