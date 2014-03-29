@@ -121,8 +121,10 @@ public class ParkingLotAdapter extends ExpandableListItemAdapter<ParkingModel>{
 
 		TextView title = (TextView) v.findViewById(R.id.title);
 		ImageView state = (ImageView) v.findViewById(R.id.state);
+		TextView lotType = (TextView) v.findViewById(R.id.lotType);
 
 		title.setText("lot " + getItem(position).getNumber());
+		lotType.setText(getItem(position).getLotType());
 		//state.setText(getItem(position).state+"");
 
 		if (getItem(position).state == 2) {
