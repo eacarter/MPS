@@ -22,6 +22,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.ITOxygen.mps.About"
+            android:label="@string/title_activity_about" >
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
